@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Glass Man Retford | Windows, Doors, Locks & Hinges</title>
+
+    <meta name="description" content="Glass Man Retford - family-run business with over 40 years of experience in the glass industry. Windows, doors, locks and hinges.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #222;
+            background: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #111;
+            color: white;
+            padding: 22px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            display: block;
+            font-size: 13px;
+            font-weight: normal;
+            letter-spacing: 2px;
+            color: #ccc;
+            margin-top: 3px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #ccc;
+        }
+
+        .hero {
+            min-height: 620px;
+            background:
+                linear-gradient(rgba(0,0,0,0.62), rgba(0,0,0,0.62)),
+                linear-gradient(135deg, #333, #111);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 60px 20px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 76px);
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .hero h2 {
+            font-size: 22px;
+            font-weight: normal;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #ddd;
+            max-width: 650px;
+            margin: 0 auto 30px;
+        }
+
+        .button {
+            display: inline-block;
+            background: white;
+            color: #111;
+            padding: 14px 28px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 6px;
+            border-radius: 3px;
+        }
+
+        .button.dark {
+            background: transparent;
+            border: 1px solid white;
+            color: white;
+        }
+
+        section {
+            padding: 75px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        .intro {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+            font-size: 18px;
+            color: #444;
+        }
+
+        .services {
+            background: white;
+        }
+
+        .service-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .service {
+            background: #f4f4f4;
+            padding: 35px 20px;
+            text-align: center;
+            border-top: 4px solid #222;
+        }
+
+        .service-icon {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .service h3 {
+            margin-bottom: 10px;
+            font-size: 21px;
+        }
+
+        .service p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .about {
+            background: #171717;
+            color: white;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about p {
+            color: #ddd;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .contact {
+            background: white;
+        }
+
+        .contact-grid {
+            max-width: 950px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .contact-box {
+            background: #f4f4f4;
+            padding: 35px;
+            text-align: center;
+        }
+
+        .contact-box h3 {
+            margin-bottom: 15px;
+        }
+
+        .phone {
+            font-size: 27px;
+            font-weight: bold;
+            color: #111;
+            text-decoration: none;
+        }
+
+        footer {
+            background: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 14px;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        @media (max-width: 800px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 13px;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 55px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        GLASS MAN RETFORD
+        <span>WINDOWS • DOORS • LOCKS • HINGES</span>
+    </div>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Glass Man Retford</h1>
+
+        <h2>Family-run business with over 40 years' experience</h2>
+
+        <p>
+            Windows, doors, locks and hinges from an experienced,
+            trusted local business.
+        </p>
+
+        <a class="button" href="#contact">GET IN TOUCH</a>
+        <a class="button dark" href="tel:01777779015">CALL 01777 779015</a>
+    </div>
+</section>
+
+<section id="about">
+    <div class="section-title">
+        <h2>About Us</h2>
+    </div>
+
+    <div class="intro">
+        <p>
+            We are a family-run business with over 40 years of experience
+            in the glass industry. With decades of knowledge behind us,
+            we pride ourselves on providing a friendly and reliable service
+            to our customers.
+        </p>
+
+        <br>
+
+        <p>
+            From windows and doors to locks and hinges, we offer practical
+            solutions backed by years of experience and expertise.
+        </p>
+    </div>
+</section>
+
+<section class="services" id="services">
+
+    <div class="section-title">
+        <h2>Our Services</h2>
+        <p>Quality products and experienced service</p>
+    </div>
+
+    <div class="service-grid">
+
+        <div class="service">
+            <div class="service-icon">🪟</div>
+            <h3>Windows</h3>
+            <p>
+                Windows supplied and fitted with quality and
+                reliability in mind.
+            </p>
+        </div>
+
+        <div class="service">
+            <div class="service-icon">🚪</div>
+            <h3>Doors</h3>
+            <p>
+                A range of door solutions for homes and businesses.
+            </p>
+        </div>
+
+        <div class="service">
+            <div class="service-icon">🔐</div>
+            <h3>Locks</h3>
+            <p>
+                Lock replacement and solutions to help keep your
+                property secure.
+            </p>
+        </div>
+
+        <div class="service">
+            <div class="service-icon">🔩</div>
+            <h3>Hinges</h3>
+            <p>
+                Replacement hinges and associated door hardware.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section class="about">
+    <div class="about-content">
+        <div class="section-title">
+            <h2>40+ Years of Experience</h2>
+        </div>
+
+        <p>
+            A family business built on experience, craftsmanship
+            and looking after our customers.
+        </p>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+
+    <div class="section-title">
+        <h2>Get In Touch</h2>
+        <p>We'd be happy to hear from you.</p>
+    </div>
+
+    <div class="contact-grid">
+
+        <div class="contact-box">
+            <h3>Give Us A Call</h3>
+
+            <a class="phone" href="tel:01777779015">
+                01777 779015
+            </a>
+        </div>
+
+        <div class="contact-box">
+            <h3>Glass Man Retford</h3>
+
+            <p>
+                Windows • Doors • Locks • Hinges
+            </p>
+
+            <p>
+                Family-run business<br>
+                Over 40 years' experience
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <strong>Glass Man Retford</strong><br>
+    Windows • Doors • Locks • Hinges<br><br>
+    © 2026 Glass Man Retford. All rights reserved.
+</footer>
+
+</body>
+</html>
