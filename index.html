@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Glass Man Windows & Doors - family-run glazing specialists in Retford with over 40 years' industry experience. Windows, doors, glass cut in-house, double glazed units, repairs, conservatory work and more." />
+  <meta name="description" content="Glass Man Windows & Doors - family-run glazing specialists in Retford with over 40 years' industry experience. Windows, doors, glass cut in-house, double glazed units, repairs, high level drone surveys, conservatory work and more." />
   <title>Glass Man Windows & Doors | Retford</title>
   <style>
     :root {
@@ -177,25 +177,70 @@
     }
     .section-head p { max-width: 580px; color: var(--muted); margin: 0; }
 
+    #services { background: #f7f7f5; }
     .services {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border-top: 1px solid var(--line);
-      border-left: 1px solid var(--line);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
     }
     .service {
-      min-height: 250px;
+      position: relative;
+      min-height: 238px;
       padding: 30px;
-      border-right: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
+      border: 1px solid #e7e7e2;
+      border-radius: 18px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       background: white;
+      box-shadow: 0 10px 28px rgba(0,0,0,.045);
+      overflow: hidden;
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
     }
-    .service-num { font-size: .78rem; color: var(--muted); font-weight: 800; }
-    .service h3 { margin: 40px 0 10px; font-size: 1.4rem; line-height: 1.1; }
-    .service p { margin: 0; color: var(--muted); font-size: .95rem; }
+    .service:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(0,0,0,.075);
+      border-color: #d7d7d1;
+    }
+    .service::after {
+      content: "↗";
+      position: absolute;
+      right: 24px;
+      top: 22px;
+      font-size: 1.05rem;
+      color: #9b9c9f;
+    }
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: var(--soft);
+      border: 1px solid #e8e8e4;
+      font-size: 1.35rem;
+      margin-bottom: 36px;
+    }
+    .service h3 { margin: 0 0 10px; font-size: 1.32rem; line-height: 1.15; letter-spacing: -.025em; }
+    .service p { margin: 0; color: var(--muted); font-size: .94rem; }
+    .service.featured { background: var(--black); color: white; border-color: var(--black); }
+    .service.featured p { color: #c9c9c9; }
+    .service.featured .service-icon { background: #222327; border-color: #33343a; }
+    .service.featured::after { color: #8f9095; }
+    .services-cta {
+      margin-top: 28px;
+      padding: 26px 30px;
+      border-radius: 18px;
+      background: white;
+      border: 1px solid #e7e7e2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .services-cta strong { display:block; font-size:1.15rem; }
+    .services-cta span { color:var(--muted); font-size:.92rem; }
 
     .feature {
       background: var(--black);
@@ -247,15 +292,48 @@
     .gallery {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      gap: 14px;
+      gap: 16px;
     }
-    .gallery figure { margin: 0; overflow: hidden; background: #eee; }
+    .gallery figure {
+      position: relative;
+      margin: 0;
+      overflow: hidden;
+      background: #eee;
+      border-radius: 18px;
+      min-height: 360px;
+    }
     .gallery img { height: 100%; object-fit: cover; transition: transform .35s ease; }
     .gallery figure:hover img { transform: scale(1.025); }
-    .gallery .g1 { grid-column: span 7; height: 570px; }
-    .gallery .g2 { grid-column: span 5; height: 570px; }
-    .gallery .g3 { grid-column: span 5; height: 460px; }
-    .gallery .g4 { grid-column: span 7; height: 460px; }
+    .gallery figcaption {
+      position:absolute;
+      left:18px; bottom:18px;
+      background:rgba(11,11,12,.82);
+      backdrop-filter: blur(6px);
+      color:white;
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:.82rem;
+      font-weight:800;
+    }
+    .gallery .g1 { grid-column: span 7; height: 520px; }
+    .gallery .g2 { grid-column: span 5; height: 520px; }
+    .gallery .g3, .gallery .g4, .gallery .g5 { grid-column: span 4; height: 380px; }
+    .gallery .g6 { grid-column: span 12; height: 430px; }
+
+    .drone-showcase {
+      background: var(--black);
+      color: white;
+      border-radius: 24px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      min-height: 500px;
+    }
+    .drone-showcase img { height: 100%; object-fit: cover; }
+    .drone-copy { padding: clamp(38px, 6vw, 72px); display:flex; flex-direction:column; justify-content:center; }
+    .drone-copy h2 { margin:14px 0 18px; font-size:clamp(2.25rem,4.5vw,4rem); line-height:1; letter-spacing:-.045em; }
+    .drone-copy p { color:#c8c8c8; max-width:520px; }
+    .drone-copy .button { margin-top:14px; align-self:flex-start; }
 
     .about-grid {
       display: grid;
@@ -319,7 +397,7 @@
       .trust-item:nth-child(2) { border-right:0; }
       .trust-item:nth-child(-n+2) { border-bottom:1px solid var(--line); }
       .services { grid-template-columns: repeat(2,1fr); }
-      .feature-grid, .about-grid, .contact-box { grid-template-columns:1fr; }
+      .feature-grid, .about-grid, .contact-box, .drone-showcase { grid-template-columns:1fr; }
       .feature-image { min-height: 430px; }
       .about-grid { gap: 36px; }
       .section-head { align-items:flex-start; flex-direction:column; }
@@ -336,6 +414,7 @@
       .ba-card img { height: 380px; }
       .gallery { display:block; }
       .gallery figure { height: 330px !important; margin-bottom: 14px; }
+      .services-cta { align-items:flex-start; }
       .trust-item { padding:18px 10px; }
       .contact-box { gap: 28px; }
     }
@@ -368,7 +447,7 @@
       <div class="hero-content">
         <span class="eyebrow">Over 40 years of industry experience</span>
         <h1>Quality glazing. Proper local service.</h1>
-        <p>Family-run specialists in windows, doors, glass, double glazed units, repairs and building work — proudly serving Retford and the surrounding area.</p>
+        <p>Family-run specialists in windows, doors, glass, double glazed units, repairs, high level drone surveys and building work — proudly serving Retford and the surrounding area.</p>
         <div class="actions">
           <a class="button light" href="tel:01777779015">Call for a quote</a>
           <a class="button ghost" href="#work">View our work</a>
@@ -392,15 +471,20 @@
           <p>From a replacement pane to a larger building project, we combine decades of hands-on experience with straightforward, reliable service.</p>
         </div>
         <div class="services">
-          <article class="service"><span class="service-num">01</span><div><h3>Windows</h3><p>Supply, replacement and installation of quality windows for homes and properties.</p></div></article>
-          <article class="service"><span class="service-num">02</span><div><h3>Doors</h3><p>Replacement and installation of practical, secure and attractive external doors.</p></div></article>
-          <article class="service"><span class="service-num">03</span><div><h3>Glass Cut In-House</h3><p>Glass cut to size in-house for a wide range of domestic and commercial requirements.</p></div></article>
-          <article class="service"><span class="service-num">04</span><div><h3>Double Glazed Units</h3><p>Made-to-measure double glazed units for replacements, repairs and new installations.</p></div></article>
-          <article class="service"><span class="service-num">05</span><div><h3>Glass Repairs</h3><p>Replacement glass and practical repair solutions for damaged, broken or failed glazing.</p></div></article>
-          <article class="service"><span class="service-num">06</span><div><h3>Mirrors</h3><p>Cut-to-size mirror solutions for bathrooms, bedrooms, feature walls and more.</p></div></article>
-          <article class="service"><span class="service-num">07</span><div><h3>Conservatory Work</h3><p>Repairs, improvements and solid conservatory roof conversion work.</p></div></article>
-          <article class="service"><span class="service-num">08</span><div><h3>Building Work</h3><p>A range of building work undertaken alongside glazing and property improvement projects.</p></div></article>
-          <article class="service"><span class="service-num">09</span><div><h3>Roof Conversions</h3><p>Practical roof conversion work designed to improve comfort and usability.</p></div></article>
+          <article class="service"><div class="service-icon">▦</div><div><h3>Windows</h3><p>Quality window supply, replacement and installation for homes and properties.</p></div></article>
+          <article class="service"><div class="service-icon">▯</div><div><h3>Doors</h3><p>Secure, practical and attractive external doors supplied and installed.</p></div></article>
+          <article class="service"><div class="service-icon">✦</div><div><h3>Glass Cut In-House</h3><p>Glass cut to size at our Retford shop for domestic and commercial requirements.</p></div></article>
+          <article class="service"><div class="service-icon">◫</div><div><h3>Double Glazed Units</h3><p>Made-to-measure units for replacements, repairs and new installations.</p></div></article>
+          <article class="service"><div class="service-icon">◇</div><div><h3>Glass Repairs</h3><p>Replacement glass and practical solutions for broken, damaged or failed glazing.</p></div></article>
+          <article class="service"><div class="service-icon">◯</div><div><h3>Mirrors</h3><p>Cut-to-size mirror solutions for bathrooms, bedrooms, feature walls and more.</p></div></article>
+          <article class="service"><div class="service-icon">⌂</div><div><h3>Conservatory Work</h3><p>Repairs, improvements and solid conservatory roof conversion work.</p></div></article>
+          <article class="service"><div class="service-icon">▤</div><div><h3>Building Work</h3><p>Building and property improvement work undertaken alongside our glazing services.</p></div></article>
+          <article class="service"><div class="service-icon">⌁</div><div><h3>Roof Conversions</h3><p>Practical roof conversion work designed to improve comfort and usability.</p></div></article>
+          <article class="service featured"><div class="service-icon">⌁</div><div><h3>High Level Drone Surveys</h3><p>Safe aerial surveys for roofs, chimneys, gutters and other hard-to-reach areas.</p></div></article>
+        </div>
+        <div class="services-cta">
+          <div><strong>Not sure exactly what you need?</strong><span>Speak directly to a tradesman — free, no-obligation quotes.</span></div>
+          <a class="button dark" href="tel:01777779015">Get a free quote</a>
         </div>
       </div>
     </section>
@@ -419,6 +503,20 @@
             <li>Local, family-run service</li>
           </ul>
           <div><a class="button light" href="tel:01777779015">Discuss your project</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top:76px;padding-bottom:0;">
+      <div class="container">
+        <div class="drone-showcase">
+          <div><img src="images/drone-roof-survey.jpeg" alt="High level roof and chimney view used for drone survey work" /></div>
+          <div class="drone-copy">
+            <span class="eyebrow">High level drone surveys</span>
+            <h2>See the problem without the guesswork.</h2>
+            <p>Our drone surveys provide a clear view of roofs, chimneys, gutters and other difficult-to-access areas, helping identify issues safely and efficiently.</p>
+            <a class="button light" href="tel:01777779015">Ask about a drone survey</a>
+          </div>
         </div>
       </div>
     </section>
@@ -443,10 +541,12 @@
           <p>Real projects, real local work and decades of experience behind the Glass Man name.</p>
         </div>
         <div class="gallery">
-          <figure class="g1"><img src="images/shopfront.jpeg" alt="Glass Man Windows and Doors shopfront in Retford" /></figure>
-          <figure class="g2"><img src="images/building-project.jpeg" alt="Large building and glazing project" /></figure>
-          <figure class="g3"><img src="images/van-snow.jpeg" alt="Glass Man Construction vehicle in winter conditions" /></figure>
-          <figure class="g4"><img src="images/history-collage.jpeg" alt="Photo collage showing the history of the family glazing business" /></figure>
+          <figure class="g1"><img src="images/window-installation.jpeg" alt="Window installation work by Glass Man in Retford" /><figcaption>Window installation</figcaption></figure>
+          <figure class="g2"><img src="images/door-installation.jpeg" alt="Purple external door installation by Glass Man" /><figcaption>Door installation</figcaption></figure>
+          <figure class="g3"><img src="images/glass-work.jpeg" alt="Specialist glass work carried out in-house" /><figcaption>In-house glass work</figcaption></figure>
+          <figure class="g4"><img src="images/drone-roof-survey.jpeg" alt="High level roof and chimney survey view" /><figcaption>High level drone survey</figcaption></figure>
+          <figure class="g5"><img src="images/building-project.jpeg" alt="Large building and glazing project in progress" /><figcaption>Building & glazing project</figcaption></figure>
+          <figure class="g6"><img src="images/history-collage.jpeg" alt="Photo collage showing the history of the family glazing business" /><figcaption>Over 40 years in the trade</figcaption></figure>
         </div>
       </div>
     </section>
@@ -470,7 +570,7 @@
           <div>
             <span class="eyebrow">Get in touch</span>
             <h2>Need a quote?</h2>
-            <p>Give us a call or email to discuss what you need. From cut glass and replacement double glazed units to windows, doors and larger projects, we’ll be happy to help.</p>
+            <p>Give us a call or email to discuss what you need. From cut glass and replacement double glazed units to windows, doors, drone surveys and larger projects, we’ll be happy to help.</p>
             <p><strong>No salesmen, just tradesmen.</strong> Free, no-obligation quotes.</p>
           </div>
           <div class="phone-card">
