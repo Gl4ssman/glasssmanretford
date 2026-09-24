@@ -1,418 +1,497 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Glass Man Windows & Doors - family-run glazing specialists in Retford with over 40 years' industry experience. Windows, doors, glass cut in-house, double glazed units, repairs, conservatory work and more." />
+  <title>Glass Man Windows & Doors | Retford</title>
+  <style>
+    :root {
+      --black: #0b0b0c;
+      --charcoal: #17181b;
+      --soft: #f4f4f2;
+      --white: #ffffff;
+      --muted: #707177;
+      --line: #dedede;
+      --accent: #c9c9c3;
+      --max: 1180px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--black);
+      background: var(--white);
+      line-height: 1.6;
+    }
+    img { width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(92%, var(--max)); margin: 0 auto; }
 
-    <title>Glass Man Retford | Windows, Doors, Locks & Hinges</title>
+    .topbar {
+      background: var(--black);
+      color: var(--white);
+      font-size: 0.92rem;
+      padding: 9px 0;
+    }
+    .topbar .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
 
-    <meta name="description" content="Glass Man Retford - family-run business with over 40 years of experience in the glass industry. Windows, doors, locks and hinges.">
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,.08);
+    }
+    nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      font-size: 1.3rem;
+    }
+    .brand small {
+      display: block;
+      margin-top: 5px;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #666;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: .95rem;
+      font-weight: 700;
+    }
+    .nav-links a:hover { opacity: .6; }
+    .nav-cta {
+      background: var(--black);
+      color: white;
+      padding: 12px 18px;
+      border-radius: 999px;
+    }
+    .menu-button { display: none; background: none; border: 0; font-size: 1.6rem; }
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    .hero {
+      position: relative;
+      min-height: 76vh;
+      display: grid;
+      place-items: center;
+      color: white;
+      isolation: isolate;
+      background: url('images/shopfront.jpeg') center 56% / cover no-repeat;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(90deg, rgba(0,0,0,.83) 0%, rgba(0,0,0,.60) 44%, rgba(0,0,0,.18) 100%);
+    }
+    .hero-content { width: min(92%, var(--max)); padding: 90px 0; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 30px; height: 2px; background: currentColor; }
+    .hero h1 {
+      max-width: 780px;
+      margin: 18px 0 18px;
+      font-size: clamp(2.8rem, 7vw, 6.2rem);
+      line-height: .96;
+      letter-spacing: -.055em;
+    }
+    .hero p {
+      max-width: 650px;
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      color: rgba(255,255,255,.88);
+      margin: 0 0 30px;
+    }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 50px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: transform .2s ease, opacity .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button.light { background: white; color: black; }
+    .button.ghost { border: 1px solid rgba(255,255,255,.5); color: white; }
+    .button.dark { background: black; color: white; }
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            color: #222;
-            background: #f5f5f5;
-            line-height: 1.6;
-        }
+    .trust-strip {
+      background: var(--soft);
+      border-bottom: 1px solid var(--line);
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+    }
+    .trust-item {
+      padding: 24px;
+      border-right: 1px solid var(--line);
+      text-align: center;
+    }
+    .trust-item:last-child { border-right: 0; }
+    .trust-item strong { display:block; font-size: 1rem; }
+    .trust-item span { font-size: .88rem; color: var(--muted); }
 
-        header {
-            background: #111;
-            color: white;
-            padding: 22px 7%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+    section { padding: 96px 0; }
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 42px;
+    }
+    .section-head h2 {
+      margin: 8px 0 0;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1;
+      letter-spacing: -.045em;
+    }
+    .section-head p { max-width: 580px; color: var(--muted); margin: 0; }
 
-        .logo {
-            font-size: 25px;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+    .service {
+      min-height: 250px;
+      padding: 30px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: white;
+    }
+    .service-num { font-size: .78rem; color: var(--muted); font-weight: 800; }
+    .service h3 { margin: 40px 0 10px; font-size: 1.4rem; line-height: 1.1; }
+    .service p { margin: 0; color: var(--muted); font-size: .95rem; }
 
-        .logo span {
-            display: block;
-            font-size: 13px;
-            font-weight: normal;
-            letter-spacing: 2px;
-            color: #ccc;
-            margin-top: 3px;
-        }
+    .feature {
+      background: var(--black);
+      color: white;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 0;
+      min-height: 590px;
+    }
+    .feature-image img { height: 100%; object-fit: cover; }
+    .feature-copy {
+      padding: clamp(45px, 8vw, 95px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .feature-copy h2 {
+      margin: 14px 0 22px;
+      font-size: clamp(2.4rem, 5vw, 4.8rem);
+      line-height: .98;
+      letter-spacing: -.05em;
+    }
+    .feature-copy p { color: #cfcfcf; max-width: 540px; }
+    .feature-points { margin: 20px 0 30px; padding: 0; list-style: none; }
+    .feature-points li { padding: 10px 0; border-bottom: 1px solid #333; }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 25px;
-            font-size: 15px;
-        }
+    .before-after {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .ba-card { position: relative; overflow: hidden; background: #ddd; }
+    .ba-card img { height: 520px; object-fit: cover; }
+    .ba-label {
+      position: absolute;
+      top: 18px; left: 18px;
+      background: rgba(0,0,0,.78);
+      color: white;
+      padding: 8px 13px;
+      border-radius: 999px;
+      font-size: .8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
 
-        nav a:hover {
-            color: #ccc;
-        }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+    .gallery figure { margin: 0; overflow: hidden; background: #eee; }
+    .gallery img { height: 100%; object-fit: cover; transition: transform .35s ease; }
+    .gallery figure:hover img { transform: scale(1.025); }
+    .gallery .g1 { grid-column: span 7; height: 570px; }
+    .gallery .g2 { grid-column: span 5; height: 570px; }
+    .gallery .g3 { grid-column: span 5; height: 460px; }
+    .gallery .g4 { grid-column: span 7; height: 460px; }
 
-        .hero {
-            min-height: 620px;
-            background:
-                linear-gradient(rgba(0,0,0,0.62), rgba(0,0,0,0.62)),
-                linear-gradient(135deg, #333, #111);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding: 60px 20px;
-        }
+    .about-grid {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 70px;
+      align-items: center;
+    }
+    .about-grid img { max-height: 650px; object-fit: cover; }
+    .about-copy h2 {
+      font-size: clamp(2.4rem, 5vw, 4.3rem);
+      line-height: 1;
+      letter-spacing: -.05em;
+      margin: 12px 0 24px;
+    }
+    .about-copy p { color: var(--muted); }
+    .about-stat {
+      margin-top: 30px;
+      display: flex;
+      gap: 14px;
+      align-items: baseline;
+    }
+    .about-stat strong { font-size: 3.5rem; letter-spacing: -.06em; }
+    .about-stat span { max-width: 180px; color: var(--muted); }
 
-        .hero-content {
-            max-width: 850px;
-        }
+    .contact {
+      background: var(--soft);
+    }
+    .contact-box {
+      background: white;
+      border: 1px solid var(--line);
+      padding: clamp(32px, 6vw, 70px);
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .contact-box h2 {
+      margin: 10px 0 18px;
+      font-size: clamp(2.5rem, 5vw, 4.8rem);
+      line-height: .98;
+      letter-spacing: -.05em;
+    }
+    .contact-box p { color: var(--muted); }
+    .phone-card {
+      background: var(--black);
+      color: white;
+      padding: 32px;
+    }
+    .phone-card span { display:block; color:#aaa; font-size:.8rem; text-transform:uppercase; letter-spacing:.14em; }
+    .phone-card strong { display:block; margin: 8px 0 20px; font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1; }
 
-        .hero h1 {
-            font-size: clamp(42px, 7vw, 76px);
-            line-height: 1.05;
-            margin-bottom: 20px;
-        }
+    footer { background: var(--black); color: white; padding: 38px 0; }
+    footer .container { display:flex; justify-content:space-between; gap:30px; flex-wrap:wrap; align-items:center; }
+    footer p { margin:0; color:#aaa; font-size:.9rem; }
 
-        .hero h2 {
-            font-size: 22px;
-            font-weight: normal;
-            margin-bottom: 15px;
-        }
-
-        .hero p {
-            font-size: 18px;
-            color: #ddd;
-            max-width: 650px;
-            margin: 0 auto 30px;
-        }
-
-        .button {
-            display: inline-block;
-            background: white;
-            color: #111;
-            padding: 14px 28px;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 6px;
-            border-radius: 3px;
-        }
-
-        .button.dark {
-            background: transparent;
-            border: 1px solid white;
-            color: white;
-        }
-
-        section {
-            padding: 75px 7%;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 45px;
-        }
-
-        .section-title h2 {
-            font-size: 38px;
-            margin-bottom: 10px;
-        }
-
-        .section-title p {
-            color: #666;
-        }
-
-        .intro {
-            max-width: 850px;
-            margin: auto;
-            text-align: center;
-            font-size: 18px;
-            color: #444;
-        }
-
-        .services {
-            background: white;
-        }
-
-        .service-grid {
-            max-width: 1100px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .service {
-            background: #f4f4f4;
-            padding: 35px 20px;
-            text-align: center;
-            border-top: 4px solid #222;
-        }
-
-        .service-icon {
-            font-size: 38px;
-            margin-bottom: 15px;
-        }
-
-        .service h3 {
-            margin-bottom: 10px;
-            font-size: 21px;
-        }
-
-        .service p {
-            color: #666;
-            font-size: 14px;
-        }
-
-        .about {
-            background: #171717;
-            color: white;
-        }
-
-        .about-content {
-            max-width: 900px;
-            margin: auto;
-            text-align: center;
-        }
-
-        .about p {
-            color: #ddd;
-            font-size: 18px;
-            margin-top: 20px;
-        }
-
-        .contact {
-            background: white;
-        }
-
-        .contact-grid {
-            max-width: 950px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        .contact-box {
-            background: #f4f4f4;
-            padding: 35px;
-            text-align: center;
-        }
-
-        .contact-box h3 {
-            margin-bottom: 15px;
-        }
-
-        .phone {
-            font-size: 27px;
-            font-weight: bold;
-            color: #111;
-            text-decoration: none;
-        }
-
-        footer {
-            background: #111;
-            color: #aaa;
-            text-align: center;
-            padding: 30px 20px;
-            font-size: 14px;
-        }
-
-        footer strong {
-            color: white;
-        }
-
-        @media (max-width: 800px) {
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            nav a {
-                margin: 0 7px;
-                font-size: 13px;
-            }
-
-            .service-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 500px) {
-            .service-grid {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 55px 5%;
-            }
-        }
-    </style>
+    @media (max-width: 900px) {
+      .nav-links { display: none; position:absolute; top:74px; left:0; right:0; background:white; padding:24px 4%; border-bottom:1px solid var(--line); flex-direction:column; align-items:flex-start; }
+      .nav-links.open { display:flex; }
+      .menu-button { display:block; }
+      .trust-grid { grid-template-columns: repeat(2,1fr); }
+      .trust-item:nth-child(2) { border-right:0; }
+      .trust-item:nth-child(-n+2) { border-bottom:1px solid var(--line); }
+      .services { grid-template-columns: repeat(2,1fr); }
+      .feature-grid, .about-grid, .contact-box { grid-template-columns:1fr; }
+      .feature-image { min-height: 430px; }
+      .about-grid { gap: 36px; }
+      .section-head { align-items:flex-start; flex-direction:column; }
+    }
+    @media (max-width: 640px) {
+      .topbar .container { justify-content:center; text-align:center; }
+      .topbar .container span:last-child { display:none; }
+      section { padding: 70px 0; }
+      .hero { min-height: 72vh; background-position: 55% center; }
+      .hero::before { background: rgba(0,0,0,.64); }
+      .hero-content { padding: 65px 0; }
+      .services { grid-template-columns:1fr; }
+      .before-after { grid-template-columns:1fr; }
+      .ba-card img { height: 380px; }
+      .gallery { display:block; }
+      .gallery figure { height: 330px !important; margin-bottom: 14px; }
+      .trust-item { padding:18px 10px; }
+      .contact-box { gap: 28px; }
+    }
+  </style>
 </head>
-
 <body>
-
-<header>
-    <div class="logo">
-        GLASS MAN RETFORD
-        <span>WINDOWS • DOORS • LOCKS • HINGES</span>
+  <div class="topbar">
+    <div class="container">
+      <span>Family-run glazing specialists in Retford</span>
+      <span>Call us: <strong>01777 779015</strong></span>
     </div>
+  </div>
 
-    <nav>
-        <a href="#about">About</a>
+  <header>
+    <nav class="container">
+      <a class="brand" href="#top">Glass Man Windows & Doors<small>Retford</small></a>
+      <button class="menu-button" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+      <div class="nav-links">
         <a href="#services">Services</a>
+        <a href="#work">Our Work</a>
+        <a href="#about">About</a>
         <a href="#contact">Contact</a>
+        <a class="nav-cta" href="tel:01777779015">Call 01777 779015</a>
+      </div>
     </nav>
-</header>
+  </header>
 
-<section class="hero">
-    <div class="hero-content">
-        <h1>Glass Man Retford</h1>
-
-        <h2>Family-run business with over 40 years' experience</h2>
-
-        <p>
-            Windows, doors, locks and hinges from an experienced,
-            trusted local business.
-        </p>
-
-        <a class="button" href="#contact">GET IN TOUCH</a>
-        <a class="button dark" href="tel:01777779015">CALL 01777 779015</a>
-    </div>
-</section>
-
-<section id="about">
-    <div class="section-title">
-        <h2>About Us</h2>
-    </div>
-
-    <div class="intro">
-        <p>
-            We are a family-run business with over 40 years of experience
-            in the glass industry. With decades of knowledge behind us,
-            we pride ourselves on providing a friendly and reliable service
-            to our customers.
-        </p>
-
-        <br>
-
-        <p>
-            From windows and doors to locks and hinges, we offer practical
-            solutions backed by years of experience and expertise.
-        </p>
-    </div>
-</section>
-
-<section class="services" id="services">
-
-    <div class="section-title">
-        <h2>Our Services</h2>
-        <p>Quality products and experienced service</p>
-    </div>
-
-    <div class="service-grid">
-
-        <div class="service">
-            <div class="service-icon">🪟</div>
-            <h3>Windows</h3>
-            <p>
-                Windows supplied and fitted with quality and
-                reliability in mind.
-            </p>
+  <main id="top">
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">Over 40 years of industry experience</span>
+        <h1>Quality glazing. Proper local service.</h1>
+        <p>Family-run specialists in windows, doors, glass, double glazed units, repairs and building work — proudly serving Retford and the surrounding area.</p>
+        <div class="actions">
+          <a class="button light" href="tel:01777779015">Call for a quote</a>
+          <a class="button ghost" href="#work">View our work</a>
         </div>
+      </div>
+    </section>
 
-        <div class="service">
-            <div class="service-icon">🚪</div>
-            <h3>Doors</h3>
-            <p>
-                A range of door solutions for homes and businesses.
-            </p>
-        </div>
-
-        <div class="service">
-            <div class="service-icon">🔐</div>
-            <h3>Locks</h3>
-            <p>
-                Lock replacement and solutions to help keep your
-                property secure.
-            </p>
-        </div>
-
-        <div class="service">
-            <div class="service-icon">🔩</div>
-            <h3>Hinges</h3>
-            <p>
-                Replacement hinges and associated door hardware.
-            </p>
-        </div>
-
-    </div>
-</section>
-
-<section class="about">
-    <div class="about-content">
-        <div class="section-title">
-            <h2>40+ Years of Experience</h2>
-        </div>
-
-        <p>
-            A family business built on experience, craftsmanship
-            and looking after our customers.
-        </p>
-    </div>
-</section>
-
-<section class="contact" id="contact">
-
-    <div class="section-title">
-        <h2>Get In Touch</h2>
-        <p>We'd be happy to hear from you.</p>
+    <div class="trust-strip">
+      <div class="container trust-grid">
+        <div class="trust-item"><strong>Family Run</strong><span>Friendly local service</span></div>
+        <div class="trust-item"><strong>40+ Years</strong><span>Glass industry experience</span></div>
+        <div class="trust-item"><strong>In-House Cutting</strong><span>Glass cut to size</span></div>
+        <div class="trust-item"><strong>Made to Measure</strong><span>Double glazed units</span></div>
+      </div>
     </div>
 
-    <div class="contact-grid">
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow">What we do</span><h2>Our services</h2></div>
+          <p>From a replacement pane to a larger building project, we combine decades of hands-on experience with straightforward, reliable service.</p>
+        </div>
+        <div class="services">
+          <article class="service"><span class="service-num">01</span><div><h3>Windows</h3><p>Supply, replacement and installation of quality windows for homes and properties.</p></div></article>
+          <article class="service"><span class="service-num">02</span><div><h3>Doors</h3><p>Replacement and installation of practical, secure and attractive external doors.</p></div></article>
+          <article class="service"><span class="service-num">03</span><div><h3>Glass Cut In-House</h3><p>Glass cut to size in-house for a wide range of domestic and commercial requirements.</p></div></article>
+          <article class="service"><span class="service-num">04</span><div><h3>Double Glazed Units</h3><p>Made-to-measure double glazed units for replacements, repairs and new installations.</p></div></article>
+          <article class="service"><span class="service-num">05</span><div><h3>Glass Repairs</h3><p>Replacement glass and practical repair solutions for damaged, broken or failed glazing.</p></div></article>
+          <article class="service"><span class="service-num">06</span><div><h3>Mirrors</h3><p>Cut-to-size mirror solutions for bathrooms, bedrooms, feature walls and more.</p></div></article>
+          <article class="service"><span class="service-num">07</span><div><h3>Conservatory Work</h3><p>Repairs, improvements and solid conservatory roof conversion work.</p></div></article>
+          <article class="service"><span class="service-num">08</span><div><h3>Building Work</h3><p>A range of building work undertaken alongside glazing and property improvement projects.</p></div></article>
+          <article class="service"><span class="service-num">09</span><div><h3>Roof Conversions</h3><p>Practical roof conversion work designed to improve comfort and usability.</p></div></article>
+        </div>
+      </div>
+    </section>
 
+    <section class="feature">
+      <div class="feature-grid">
+        <div class="feature-image"><img src="images/building-project.jpeg" alt="Glass Man Construction building project in progress" /></div>
+        <div class="feature-copy">
+          <span class="eyebrow">More than glazing</span>
+          <h2>Experience that covers the whole job.</h2>
+          <p>Our work goes beyond a single pane of glass. We can help with larger property projects, windows, doors, conversions and associated building work.</p>
+          <ul class="feature-points">
+            <li>Domestic & property improvement work</li>
+            <li>Windows, doors & glazing</li>
+            <li>Conservatory & roof conversion work</li>
+            <li>Local, family-run service</li>
+          </ul>
+          <div><a class="button light" href="tel:01777779015">Discuss your project</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow">Recent work</span><h2>Results you can see</h2></div>
+          <p>A failed or misted double glazed unit can make a window look tired and obscure the view. Replacement units can make a dramatic difference.</p>
+        </div>
+        <div class="before-after">
+          <div class="ba-card"><span class="ba-label">Before</span><img src="images/misted-window-before.jpeg" alt="Misted double glazed window before replacement" /></div>
+          <div class="ba-card"><span class="ba-label">After</span><img src="images/misted-window-after.jpeg" alt="Clear double glazed window after replacement" /></div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top:0">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow">Gallery</span><h2>A look at our work</h2></div>
+          <p>Real projects, real local work and decades of experience behind the Glass Man name.</p>
+        </div>
+        <div class="gallery">
+          <figure class="g1"><img src="images/shopfront.jpeg" alt="Glass Man Windows and Doors shopfront in Retford" /></figure>
+          <figure class="g2"><img src="images/building-project.jpeg" alt="Large building and glazing project" /></figure>
+          <figure class="g3"><img src="images/van-snow.jpeg" alt="Glass Man Construction vehicle in winter conditions" /></figure>
+          <figure class="g4"><img src="images/history-collage.jpeg" alt="Photo collage showing the history of the family glazing business" /></figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about-grid">
+        <div><img src="images/history-collage.jpeg" alt="Historic photographs from the Glass Man family business" /></div>
+        <div class="about-copy">
+          <span class="eyebrow">About us</span>
+          <h2>A family business built on experience.</h2>
+          <p>Glass Man Windows & Doors is a family-run business with over 40 years of experience in the glass industry. From traditional glazing and replacement units to windows, doors and property improvement work, we pride ourselves on dependable workmanship and a personal local service.</p>
+          <p>Whether you need a small piece of glass cut to size or want to discuss a larger project, you can speak directly to a local team that knows the trade.</p>
+          <div class="about-stat"><strong>40+</strong><span>years of glass industry experience</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
         <div class="contact-box">
-            <h3>Give Us A Call</h3>
-
-            <a class="phone" href="tel:01777779015">
-                01777 779015
-            </a>
+          <div>
+            <span class="eyebrow">Get in touch</span>
+            <h2>Need a quote?</h2>
+            <p>Give us a call to discuss what you need. From cut glass and replacement double glazed units to windows, doors and larger projects, we’ll be happy to help.</p>
+          </div>
+          <div class="phone-card">
+            <span>Call Glass Man Windows & Doors</span>
+            <strong>01777 779015</strong>
+            <a class="button light" href="tel:01777779015">Call now</a>
+          </div>
         </div>
+      </div>
+    </section>
+  </main>
 
-        <div class="contact-box">
-            <h3>Glass Man Retford</h3>
-
-            <p>
-                Windows • Doors • Locks • Hinges
-            </p>
-
-            <p>
-                Family-run business<br>
-                Over 40 years' experience
-            </p>
-        </div>
-
+  <footer>
+    <div class="container">
+      <div class="brand">Glass Man Windows & Doors<small style="color:#888">Retford</small></div>
+      <p>© <span id="year"></span> Glass Man Windows & Doors. All rights reserved.</p>
     </div>
-</section>
+  </footer>
 
-<footer>
-    <strong>Glass Man Retford</strong><br>
-    Windows • Doors • Locks • Hinges<br><br>
-    © 2026 Glass Man Retford. All rights reserved.
-</footer>
-
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open')));
+  </script>
 </body>
 </html>
